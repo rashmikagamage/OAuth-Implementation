@@ -1,11 +1,19 @@
-import Twitter from './components/twitter';
+import Twitter from './components/login';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
-    <div >
-    <Twitter/>
-    </div>
+    
+    <Router>{
+      <div>
+          <switch>
+              <Route path="/twitter" component={Twitter}/>
+          </switch>
+      </div>
+  }
+
+  </Router>
   );
 }
 
