@@ -59,14 +59,13 @@ app.get('/auth/github',
   });
 
 
-//callback point
+
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: 'http://localhost:3000/login' }),
   function(req, res) {
    res.redirect('http://localhost:3000/auth/github/callback');
  });
 
- //Strategy for Twitter
  passport.use(new TwitterStrategy({
   consumerKey: "u326tWfIcQO03GLU8TGaGqfZQ",
   consumerSecret: "dpM91VErbxjO98JDF8SUjnmcVe6EDFLIgyK89FJyZwed9pXEWL",
@@ -81,17 +80,16 @@ function(token, tokenSecret, profile, cb) {
 }
 ));
 
-//End point for twitter authentication
 app.get('/auth/twitter',
 passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback', 
 passport.authenticate('twitter', { failureRedirect: '/login' }),
 function(req, res) {
+  // Successful authentication, redirect home.
   res.redirect('/');
 });
 
-//Listening to port
 app.listen(process.env.port || 4000, function () {
 // process.env.port useful when host this app
 console.log("now listening for requests");

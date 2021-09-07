@@ -12,7 +12,7 @@ function App() {
           <switch>
               <Route path="/login" component={Login}/>
               <Route path="/auth/github/callback" component={GitHome}/>
-              <Route path="/auth/twitter/callback" component={TwitterHome}/>
+              <Route path="/auth/twitter/callback" component={GitHome}/>
           </switch>
       </div>
   }
