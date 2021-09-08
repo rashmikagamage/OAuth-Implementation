@@ -1,4 +1,4 @@
-import gitlogo from "../images/social.png";
+import logingit from "../images/gitlogin.png";
 import "../css/twitter.css";
 import {
   GithubLoginButton,
@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 const Axios = require("axios");
 
-function Login(props) {
+function LoginGit(props) {
 
   const gitHub = async () => {
 
@@ -25,13 +25,10 @@ function Login(props) {
   return (
     <div className="login">
       <div class="card" style={{ width: "25rem" }}>
-        <img src={gitlogo} class="login-img" alt=""></img>
+        <img src={logingit} class="login-img" alt=""></img>
         <div class="card-body">
           <div className="buttonSize">
             <GithubLoginButton onClick={() => gitHub()} />
-            <TwitterLoginButton onClick={() => alert("Hello")} />
-            <LinkedInLoginButton onClick={() => alert("Hello")} />
-            <FacebookLoginButton onClick={() => alert("Hello")} />
           </div>
         </div>
       </div>
@@ -39,4 +36,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default LoginGit;
