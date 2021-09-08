@@ -7,18 +7,17 @@ import {
   LinkedInLoginButton,
 } from "react-social-login-buttons";
 import React, { useState } from "react";
-const Axios = require("axios");
+const axios = require("axios");
 
 function Login(props) {
-
   const gitHub = async () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "http://localhost:4000/auth/github",
-    }).then((res) => console.log(res));
-  };
-
+    //const response = await axios.get("http://localhost:4000/auth/twitter");
+    //console.log(response);
+    fetch('http://localhost:4000')
+        .then(response => console.log(response))
+        ;
+  
+}
 
   return (
     <div className="login">

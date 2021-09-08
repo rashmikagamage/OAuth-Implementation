@@ -10,7 +10,7 @@ function TwitterHome(props) {
         
     }
   return (
-    <div className="">
+    <div className="bg">
       <div class="container avatar-cont">
         <div class="row">
           <div class="col-sm-3">

@@ -18,7 +18,7 @@
 .tweetHeader{
     color:darkslategrey;
     margin-left: 340px;
-    margin-top: 10px;
+    margin-top: 100px;
 }
 
 .twt-button{
@@ -32,12 +32,3 @@
     height: 50px;
     border-radius: 50%;
   }
-
-.avatar-cont{
-    width: 280px;
-    margin-top: 100px;
-    margin-bottom: 25px;
-}
-.bg{
-    background-color: gray;
-}

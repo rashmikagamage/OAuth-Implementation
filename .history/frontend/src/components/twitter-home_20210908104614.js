@@ -10,13 +10,13 @@ function TwitterHome(props) {
         
     }
   return (
-    <div className="">
+    <div>
       <div class="container avatar-cont">
         <div class="row">
           <div class="col-sm-3">
           <img src={avatar} alt="Avatar" class="avatar"></img> 
           </div>
-          <div class="col-sm mt-3">
+          <div class="col-sm">
           Hello! {username}
           </div>
         </div>

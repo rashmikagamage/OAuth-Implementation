@@ -13,9 +13,9 @@ function Login(props) {
 
   const gitHub = async () => {
     Axios({
-      method: "GET",
+      method: "POST",
       withCredentials: true,
-      url: "http://localhost:4000/auth/github",
+      url: "http://localhost:4000/auth/twitter",
     }).then((res) => console.log(res));
   };
 

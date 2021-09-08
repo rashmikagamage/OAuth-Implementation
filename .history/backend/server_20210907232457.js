@@ -89,7 +89,7 @@ function(token, tokenSecret, profile, cb) {
 ));
 
 //End point for twitter authentication
-app.post('/auth/twitter',
+app.get('/auth/twitter',
 passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback', 

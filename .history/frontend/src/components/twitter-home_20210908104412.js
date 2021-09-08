@@ -5,19 +5,18 @@ const axios = require("axios").default;
 
 function TwitterHome(props) {
 
-  const [username,setUserName] = useState("Rashmika Gamage");
     function tweet(){
         
     }
   return (
-    <div className="">
+    <div>
       <div class="container avatar-cont">
         <div class="row">
           <div class="col-sm-3">
           <img src={avatar} alt="Avatar" class="avatar"></img> 
           </div>
-          <div class="col-sm mt-3">
-          Hello! {username}
+          <div class="col-sm">
+          Hello! Rashmika
           </div>
         </div>
       </div>

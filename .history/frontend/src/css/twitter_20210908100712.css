@@ -16,28 +16,12 @@
   border-color: darkblue;
 }
 .tweetHeader{
-    color:darkslategrey;
+    color:darkcyan;
     margin-left: 340px;
-    margin-top: 10px;
+    margin-top: 100px;
 }
 
 .twt-button{
     margin-top: 10px;
     margin-left: 950px;
-}
-
-.avatar {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-.avatar-cont{
-    width: 280px;
-    margin-top: 100px;
-    margin-bottom: 25px;
-}
-.bg{
-    background-color: gray;
 }
