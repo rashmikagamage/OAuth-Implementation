@@ -18,7 +18,7 @@ function TwitterHome(props) {
   function tweet() {}
 
   return (
-    <div className="container">
+    <div className="container twitter-container ">
       <div class="row">
         <div class="col">
           <div class="container avatar-cont">
@@ -39,11 +39,14 @@ function TwitterHome(props) {
             Tweet
           </button>
         </div>
-      <div class="col">
-        <Picker onEmojiClick={onEmojiClick} />
+        <div class="col emoji-con">
+        <Picker onEmojiClick={onEmojiClick} /> 
         </div>
+        
       </div>
+       
     </div>
+    
   );
 }
 

@@ -42,6 +42,11 @@
     background-color: gray;
 }
 
-.emoji{
-    margin-top: 50px;
+.emoji-con{
+    margin-top: 70px;
+}
+
+.twitter-container{
+    margin-top: 40px;
+    margin-left: 250px;
 }
