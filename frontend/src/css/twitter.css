@@ -12,18 +12,18 @@
 }
 .text{
     margin: auto;
-  width: 50%;
+
   border-color: darkblue;
 }
 .tweetHeader{
     color:darkslategrey;
-    margin-left: 340px;
+    margin-left: 0px;
     margin-top: 10px;
 }
 
 .twt-button{
     margin-top: 10px;
-    margin-left: 950px;
+    margin-left: 0px;
 }
 
 .avatar {
@@ -40,4 +40,8 @@
 }
 .bg{
     background-color: gray;
+}
+
+.emoji{
+    margin-top: 50px;
 }
