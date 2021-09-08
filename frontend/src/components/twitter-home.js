@@ -2,7 +2,7 @@ import Picker from "emoji-picker-react";
 import "../css/twitter.css";
 import avatar from "../images/my.jpg";
 import React, { useState } from "react";
-const axios = require("axios").default;
+const Axios = require("axios").default;
 
 function TwitterHome(props) {
   //variables with react hooks
@@ -15,7 +15,17 @@ function TwitterHome(props) {
     setChosenEmoji(emojiObject);
   };
 
-  function tweet() {}
+  //method for calling the tweet ap
+  function tweet() {
+    Axios({
+      method: "GET",
+      withCredentials: true,
+      url: "https://api.twitter.com/1.1/statuses/${token}",
+      body:tweet
+    }).then((res) => console.log(res));
+  };
+    
+  
 
   return (
     <div className="container twitter-container ">
@@ -42,11 +52,8 @@ function TwitterHome(props) {
         <div class="col emoji-con">
         <Picker onEmojiClick={onEmojiClick} /> 
         </div>
-        
       </div>
-       
     </div>
-    
   );
 }
 

@@ -1,4 +1,4 @@
-import gitlogo from "../images/job-searching.png";
+import gitlogo from "../images/social.png";
 import "../css/twitter.css";
 import {
   GithubLoginButton,
@@ -12,11 +12,13 @@ const Axios = require("axios");
 function Login(props) {
 
   const gitHub = async () => {
+
     Axios({
       method: "GET",
       withCredentials: true,
       url: "http://localhost:4000/auth/github",
     }).then((res) => console.log(res));
+
   };
 
 
