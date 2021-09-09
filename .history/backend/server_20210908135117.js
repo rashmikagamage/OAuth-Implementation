@@ -9,8 +9,6 @@ const GitHubStrategy = require('passport-github').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const passport = require("passport")
 const  bodyParser = require('body-parser');
-
-//middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -18,7 +16,13 @@ app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
 
 
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
 );
+
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
 const GITHUB_CLIENT_SECRET = "2fbf426fb207ea903081a5276eab4796a8ad1c50";
 const CALLBACK_URL = "http://localhost:3000/auth/github/callback"
@@ -49,7 +53,7 @@ function(accessToken, refreshToken, profile, done) {
 }
 ));
 
-app.get('/getUser', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
@@ -85,7 +89,7 @@ function(token, tokenSecret, profile, cb) {
 ));
 
 //End point for twitter authentication
-app.get('/auth/twitter',
+app.post('/auth/twitter',
 passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback', 

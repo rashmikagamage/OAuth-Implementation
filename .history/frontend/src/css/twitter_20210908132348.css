@@ -1,0 +1,52 @@
+.login{
+    width: 240px;
+    margin-top: 50px;
+    margin-left: 450px;
+}
+.margin5{
+    margin-top: 55px;
+}
+.buttonSize{
+    width: 250px;
+    margin-left: 50px;
+}
+.text{
+    margin: auto;
+
+  border-color: darkblue;
+}
+.tweetHeader{
+    color:darkslategrey;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.twt-button{
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+.avatar-cont{
+    width: 280px;
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+.bg{
+    background-color: gray;
+}
+
+.emoji-con{
+    margin-top: 50px;
+}
+
+.twitter-container{
+    margin-top: 50px;
+    margin-left: 200px;
+}
