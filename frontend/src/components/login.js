@@ -21,6 +21,10 @@ function Login(props) {
 
   };
 
+  const Linkdin = async () => {
+    window.location.href="http://localhost:4000/api/auth/linkedin";
+  };
+
 
   return (
     <div className="login">
@@ -30,7 +34,7 @@ function Login(props) {
           <div className="buttonSize">
             <GithubLoginButton onClick={() => gitHub()} />
             <TwitterLoginButton onClick={() => alert("Hello")} />
-            <LinkedInLoginButton onClick={() => alert("Hello")} />
+            <LinkedInLoginButton onClick={ Linkdin} />
             <FacebookLoginButton onClick={() => alert("Hello")} />
           </div>
         </div>

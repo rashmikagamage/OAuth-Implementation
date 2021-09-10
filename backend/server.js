@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
-
+const routes = require('./routes/linkdinRoutes.js');
 
 app.use(
   cors({
@@ -97,6 +97,9 @@ passport.authenticate('twitter', { failureRedirect: '/login' }),
 function(req, res) {
   res.redirect('/');
 });
+
+
+app.use('/api', routes);
 
 //Listening to port
 app.listen(process.env.port || 4000, function () {
