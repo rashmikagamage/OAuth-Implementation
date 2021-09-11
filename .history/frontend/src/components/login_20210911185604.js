@@ -20,11 +20,7 @@ function Login(props) {
     }).then((res) => console.log(res));
   };
 
-  const Linkdin = async () => {
-    window.location.href="http://localhost:4000/api/auth/linkedin";
-  };
-
-
+  //returning the UI
   return (
     <div className="login">
       <div class="card" style={{ width: "25rem" }}>
@@ -33,7 +29,7 @@ function Login(props) {
           <div className="buttonSize">
             <GithubLoginButton onClick={() => gitHub()} />
             <TwitterLoginButton onClick={() => alert("Hello")} />
-            <LinkedInLoginButton onClick={ Linkdin} />
+            <LinkedInLoginButton onClick={() => alert("Hello")} />
             <FacebookLoginButton onClick={() => alert("Hello")} />
           </div>
         </div>

@@ -9,17 +9,20 @@ const GitHubStrategy = require('passport-github').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const passport = require("passport")
 const  bodyParser = require('body-parser');
-const { profile } = require('console');
-
-//middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
-const routes = require('./routes/linkdinRoutes.js');
 
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
 );
+
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
 const GITHUB_CLIENT_SECRET = "2fbf426fb207ea903081a5276eab4796a8ad1c50";
 const CALLBACK_URL = "http://localhost:3000/auth/github/callback"
@@ -50,11 +53,8 @@ function(accessToken, refreshToken, profile, done) {
 }
 ));
 
-//getUser end points
-app.get('/getUser', (req, res) => {
-  process.nextTick(function (profile) {
-    return profile;
-   });
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
 
 //end point for github
@@ -64,6 +64,7 @@ app.get('/auth/github',
     // The request will be redirected to GitHub for authentication, so this
     // function will not be called.
   });
+
 
 //callback point
 app.get('/auth/github/callback', 
@@ -79,16 +80,16 @@ app.get('/auth/github/callback',
   callbackURL: "http://localhost:4000/auth/twitter/callback"
 },
 
-//method to save the profile to local storage
 function(token, tokenSecret, profile, cb) {
   process.nextTick(function () {
-   done(null, profile);
+    console.log(accessToken);
+    done(null, profile);
   });
 }
 ));
 
 //End point for twitter authentication
-app.get('/auth/twitter',
+app.post('/auth/twitter',
 passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback', 
@@ -97,13 +98,10 @@ function(req, res) {
   res.redirect('/');
 });
 
-
-app.use('/api', routes);
-//end point to authenticate twitter
 app.get('/auth/twitter/callback', 
 passport.authenticate('twitter', { failureRedirect: '/login' }),
 function(req, res) {
-  res.redirect('/twitterHome');
+  res.redirect('/');
 });
 
 //Listening to port

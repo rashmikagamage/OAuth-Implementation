@@ -1,21 +1,12 @@
 import "../css/git.css";
 import code from "../images/code.png";
 import React, { useState } from "react";
-const Axios = require("axios").default;
+const axios = require("axios").default;
 
 function GitHome(props) {
-
-  //method which calls the get repos endpoint
-  const createRepos = async () => {
-    Axios({
-      method: "POST",
-      withCredentials: true,
-      url: "http://localhost:4000/git/createrepos",
-    }).then((res) => console.log(res));
-  };
-
+  function getRepos() {}
   return (
-    <div class="main">
+    <div class="card">
        <img src={code} alt="Avatar" class="img"></img>
       <form>
         <div class="form-group row mt-5">

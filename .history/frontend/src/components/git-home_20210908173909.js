@@ -1,39 +1,29 @@
 import "../css/git.css";
-import code from "../images/code.png";
 import React, { useState } from "react";
-const Axios = require("axios").default;
+const axios = require("axios").default;
 
 function GitHome(props) {
-
-  //method which calls the get repos endpoint
-  const createRepos = async () => {
-    Axios({
-      method: "POST",
-      withCredentials: true,
-      url: "http://localhost:4000/git/createrepos",
-    }).then((res) => console.log(res));
-  };
-
+  function getRepos() {}
   return (
     <div class="main">
-       <img src={code} alt="Avatar" class="img"></img>
       <form>
         <div class="form-group row mt-5">
           <input
             type="text"
             class="form-control"
             id="formGroupExampleInput"
-            placeholder="Repository Name"
+            placeholder="Example input"
           ></input>
           <input
             type="text"
             class="form-control mt-3"
             id="formGroupExampleInput"
-            placeholder="Description"
+            placeholder="Example input"
           ></input>
         </div>
         <table>
           <tr>
+            <td>Public</td>
             <td>
               <div class="form-check">
                 <input
@@ -47,11 +37,6 @@ function GitHome(props) {
               </div>
             </td>
             <td>
-              <label class="form-check-label ml-1 mr-3" for="exampleRadios2">
-                Public
-              </label>
-            </td>
-            <td>
               <div class="form-check">
                 <input
                   class="form-check-input position-static"
@@ -63,15 +48,9 @@ function GitHome(props) {
                 ></input>
               </div>
             </td>
-            <td>
-              <label class="form-check-label ml-1 mr-3" for="exampleRadios2">
-                Private
-              </label>
-            </td>
           </tr>
         </table>
       </form>
-      <button type="button" class="btn btn-dark btn-sm btn-block mt-5">Create Repository</button>
     </div>
   );
 }

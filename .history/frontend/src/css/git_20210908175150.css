@@ -1,0 +1,11 @@
+.main{
+  margin: auto;
+  width: 50%;
+  border: 5px;
+}
+
+.img{
+    width: 150px;
+    margin-left: 250px;
+    margin-top:25px ;
+}

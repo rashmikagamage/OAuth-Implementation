@@ -9,7 +9,6 @@ const GitHubStrategy = require('passport-github').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const passport = require("passport")
 const  bodyParser = require('body-parser');
-const { profile } = require('console');
 
 //middleware
 app.use(cors());
@@ -17,7 +16,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
-const routes = require('./routes/linkdinRoutes.js');
+
 
 );
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
@@ -50,11 +49,8 @@ function(accessToken, refreshToken, profile, done) {
 }
 ));
 
-//getUser end points
 app.get('/getUser', (req, res) => {
-  process.nextTick(function (profile) {
-    return profile;
-   });
+  res.send('Hello World!')
 })
 
 //end point for github
@@ -64,6 +60,7 @@ app.get('/auth/github',
     // The request will be redirected to GitHub for authentication, so this
     // function will not be called.
   });
+
 
 //callback point
 app.get('/auth/github/callback', 
@@ -79,7 +76,7 @@ app.get('/auth/github/callback',
   callbackURL: "http://localhost:4000/auth/twitter/callback"
 },
 
-//method to save the profile to local storage
+//
 function(token, tokenSecret, profile, cb) {
   process.nextTick(function () {
    done(null, profile);
@@ -97,8 +94,6 @@ function(req, res) {
   res.redirect('/');
 });
 
-
-app.use('/api', routes);
 //end point to authenticate twitter
 app.get('/auth/twitter/callback', 
 passport.authenticate('twitter', { failureRedirect: '/login' }),

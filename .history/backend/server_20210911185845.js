@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
-const routes = require('./routes/linkdinRoutes.js');
+
 
 );
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
@@ -52,7 +52,7 @@ function(accessToken, refreshToken, profile, done) {
 
 //getUser end points
 app.get('/getUser', (req, res) => {
-  process.nextTick(function (profile) {
+  process.nextTick(function () {
     return profile;
    });
 })
@@ -97,8 +97,6 @@ function(req, res) {
   res.redirect('/');
 });
 
-
-app.use('/api', routes);
 //end point to authenticate twitter
 app.get('/auth/twitter/callback', 
 passport.authenticate('twitter', { failureRedirect: '/login' }),

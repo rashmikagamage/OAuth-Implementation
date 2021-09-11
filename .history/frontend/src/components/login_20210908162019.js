@@ -11,17 +11,14 @@ const Axios = require("axios");
 
 function Login(props) {
 
-  //method to call github auth end point
   const gitHub = async () => {
+
     Axios({
       method: "GET",
       withCredentials: true,
       url: "http://localhost:4000/auth/github",
     }).then((res) => console.log(res));
-  };
 
-  const Linkdin = async () => {
-    window.location.href="http://localhost:4000/api/auth/linkedin";
   };
 
 
@@ -32,9 +29,6 @@ function Login(props) {
         <div class="card-body">
           <div className="buttonSize">
             <GithubLoginButton onClick={() => gitHub()} />
-            <TwitterLoginButton onClick={() => alert("Hello")} />
-            <LinkedInLoginButton onClick={ Linkdin} />
-            <FacebookLoginButton onClick={() => alert("Hello")} />
           </div>
         </div>
       </div>
