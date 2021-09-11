@@ -8,13 +8,15 @@ import './App.css';
 
 function App() {
   return (
+    
     <Router>{
       <div>
           <switch>
               <Route path="/login" component={Login}/>
               <Route path="/logingit" component={LoginGit}/>
               <Route path="/auth/github/callback" component={GitHome}/>
-              <Route path="/auth/twitter/callback" component={TwitterHome}/>  
+              <Route path="/auth/twitter/callback" component={TwitterHome}/>
+            
           </switch>
       </div>
   }
