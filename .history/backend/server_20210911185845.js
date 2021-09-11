@@ -52,7 +52,7 @@ function(accessToken, refreshToken, profile, done) {
 
 //getUser end points
 app.get('/getUser', (req, res) => {
-  process.nextTick(function (profile) {
+  process.nextTick(function () {
     return profile;
    });
 })
