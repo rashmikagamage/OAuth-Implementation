@@ -61,6 +61,7 @@ app.get('/auth/github',
     // function will not be called.
   });
 
+
 //callback point
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: 'http://localhost:3000/login' }),

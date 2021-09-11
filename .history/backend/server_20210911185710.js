@@ -61,6 +61,7 @@ app.get('/auth/github',
     // function will not be called.
   });
 
+
 //callback point
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: 'http://localhost:3000/login' }),
@@ -75,10 +76,10 @@ app.get('/auth/github/callback',
   callbackURL: "http://localhost:4000/auth/twitter/callback"
 },
 
-//method to save the profile to local storage
 function(token, tokenSecret, profile, cb) {
   process.nextTick(function () {
-   done(null, profile);
+    console.log(accessToken);
+    done(null, profile);
   });
 }
 ));
