@@ -8,6 +8,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage("./scratch");
 }
 
+//linkdin strategy with passport js
 passport.use(
   new LinkedInStrategy(
     {
@@ -42,6 +43,7 @@ router.get(
   }
 );
 
+//callback point
 router.get(
   "/linkdin/callback",
   passport.authenticate("linkedin", {

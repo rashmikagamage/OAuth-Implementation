@@ -19,7 +19,7 @@ app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
 const routes = require('./routes/linkdinRoutes.js');
 
-);
+
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
 const GITHUB_CLIENT_SECRET = "2fbf426fb207ea903081a5276eab4796a8ad1c50";
 const CALLBACK_URL = "http://localhost:3000/auth/github/callback"
