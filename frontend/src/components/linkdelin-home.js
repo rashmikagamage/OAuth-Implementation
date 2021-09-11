@@ -4,13 +4,14 @@ import axios from "axios";
 import { Link ,useHistory} from "react-router-dom";
 import Card from "./card.js";
 import Box from "./box.js";
-
 import avatar from "../images/my.jpg";
 //import Layout from '../../components/Layout';
 import img1 from "../images/linkdelinjob1.png";
 import img2 from "../images/linkdelinjob2.png";
 import img3 from "../images/l2.png";
 const Axios = require("axios");
+
+
 function LinkdelinHome(props) {
   const [papers, setPapers] = useState([
     {
@@ -65,7 +66,7 @@ function LinkdelinHome(props) {
   var history = useHistory();
 
   const getVacancieInfo = (params) => {
-    console.log("papers 10" + params);
+    //console.log("papers 10" + params);
    history.push("/linkdin/Messaging"+"?"+"title="+params.title+"&"+"email="+params.email);
   };
 
@@ -77,7 +78,7 @@ function LinkdelinHome(props) {
       url: "http://localhost:4000/api/gettoken",
     })
       .then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         //save the access token inside browser
         localStorage.setItem("linkdinAccessToken", response.data);
       })
@@ -91,7 +92,7 @@ function LinkdelinHome(props) {
             Authorization: `Bearer ${token}`,
           },
         }).then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           setFirstName(response.data.localizedFirstName)
         });
       }).then(function (response) {
@@ -104,13 +105,15 @@ function LinkdelinHome(props) {
             Authorization: `Bearer ${token}`,
           },
         }).then(function (response) {
-          console.log(response.data.profilePicture);
+          // console.log(response.data.profilePicture);
 
-          console.log(Object.values(response.data.profilePicture ));
+          // console.log(Object.values(response.data.profilePicture ));
 
           const x = Object.values(response.data.profilePicture );
 
           imageUrl = x[1].elements[0].identifiers[0].identifier;
+
+          localStorage.setItem("imageurl",imageUrl);
 
           setImageUrl(imageUrl);
         });

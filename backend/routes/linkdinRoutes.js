@@ -2,17 +2,11 @@ const router = require("express").Router();
 var LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 const passport = require("passport");
 const axios = require('axios');
+
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require("node-localstorage").LocalStorage;
   localStorage = new LocalStorage("./scratch");
 }
-// router.get('/linkdin/callback', function (req, res) {
-
-//     console.log('code is '+req.query.code);
-//     console.log('state is '+req.query.state);
-//     console.log('called');
-//     res.send('success')
-//   })
 
 passport.use(
   new LinkedInStrategy(
@@ -25,10 +19,10 @@ passport.use(
     function (accessToken, refreshToken, profile, done) {
       // asynchronous verification, for effect...
       process.nextTick(function () {
-        console.log("accessToken", accessToken);
+        //console.log("accessToken", accessToken);
 
         localStorage.setItem("token", accessToken);
-        console.log(localStorage.getItem("token"));
+        //console.log(localStorage.getItem("token"));
         // To keep the example simple, the user's LinkedIn profile is returned to
         // represent the logged-in user. In a typical application, you would want
         // to associate the LinkedIn account with a user record in your database,
@@ -48,9 +42,6 @@ router.get(
   }
 );
 
-// http://localhost:4000/api/linkdin/callback
-//http://localhost:4000/api/linkdin/callback
-
 router.get(
   "/linkdin/callback",
   passport.authenticate("linkedin", {
@@ -60,11 +51,10 @@ router.get(
 );
 
 router.get("/gettoken", function (req, res) {
-  console.log("get token called" + localStorage.getItem("token"));
+  //console.log("get token called" + localStorage.getItem("token"));
   const token = localStorage.getItem("token");
   res.send(token);
 });
-
 
 
 router.get("/getprofile", function (req, res) {
