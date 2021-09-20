@@ -2,10 +2,11 @@ import gitlogo from "../images/social.png";
 import "../css/twitter.css";
 import {
   GithubLoginButton,
-  FacebookLoginButton,
   TwitterLoginButton,
   LinkedInLoginButton,
 } from "react-social-login-buttons";
+import Spotify from './login-button-spotify';
+import Reddit from './login-button-reddit'
 import React, { useState } from "react";
 const Axios = require("axios");
 
@@ -34,7 +35,8 @@ function Login(props) {
             <GithubLoginButton onClick={() => gitHub()} />
             <TwitterLoginButton onClick={() => alert("Hello")} />
             <LinkedInLoginButton onClick={ Linkdin} />
-            <FacebookLoginButton onClick={() => alert("Hello")} />
+            <Spotify onClick={() => alert("Hello")} />
+            <Reddit onClick={() => alert("Hello")} />
           </div>
         </div>
       </div>
