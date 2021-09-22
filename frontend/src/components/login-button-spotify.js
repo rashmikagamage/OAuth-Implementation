@@ -10,6 +10,7 @@ const config = {
     style: { background: "#1DB954" },
     activeStyle: { background: "#1DB954" }
 };
+
 //login button of the spotify
 const MySpotifyLoginButton = createButton(config);
 

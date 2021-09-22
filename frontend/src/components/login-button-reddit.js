@@ -10,7 +10,8 @@ const config = {
     style: { background: "#ff4500" },
     activeStyle: { background: "#ff4500" }
 };
-/** My Facebook login button. */
+
+//login button of the reddit
 const MyRedditLoginButton = createButton(config);
 
 export default MyRedditLoginButton;
