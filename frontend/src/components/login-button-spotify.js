@@ -10,7 +10,7 @@ const config = {
     style: { background: "#1DB954" },
     activeStyle: { background: "#1DB954" }
 };
-/** My Facebook login button. */
+//login button of the spotify
 const MySpotifyLoginButton = createButton(config);
 
 export default MySpotifyLoginButton;
