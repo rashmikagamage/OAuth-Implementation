@@ -23,9 +23,7 @@ class Reddit extends Component {
     }
 
 
-    componentDidMount() {
-
-    }
+    componentDidMount() {}
 
     share(e) {
         e.preventDefault();
@@ -57,16 +55,13 @@ class Reddit extends Component {
             <div>
                 <div style={{ backgroundColor: "#FF4500" }}>
                     <div className="header" style={{ textAlign: "right", margin: "0.065%" }}>
-                        {/* <div className="headerTitles">
-          <span className="headerTitleLg">Job Vacancies</span>
-        </div> */}
+
                         <div
                             style={{
                                 paddingTop: "0.5%",
                                 paddingBottom: "0.5%",
                                 paddingRight: "1%",
-                            }}
-                        >
+                            }}>
                             <div className="row">
                                 <div className="col-6" style={{ textAlign: "left" }}>
                                     <img
@@ -75,8 +70,9 @@ class Reddit extends Component {
                                             width: "100px",
                                             marginLeft: "5%",
                                             marginTop: "0.8%",
-                                        }}
-                                    ></img>
+                                        }}>
+
+                                    </img>
                                 </div>
                                 <div className="col-6">
                                     <div style={{ marginRight: "4%" }}>
@@ -92,8 +88,6 @@ class Reddit extends Component {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* <h4 class="tweetHeader">Hello Keshana!!</h4> */}
                         </div>
                     </div>
                 </div>
@@ -109,8 +103,7 @@ class Reddit extends Component {
                             height: "100%",
                             boxShadow: "10px 10px 30px #888888",
                             // borderRadius: "25px",
-                        }}
-                    >
+                        }}>
                         <div className="">
                             <div className="container">
                                 <div className="row">

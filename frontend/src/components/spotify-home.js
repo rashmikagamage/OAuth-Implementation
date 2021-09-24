@@ -20,9 +20,7 @@ class Spotify extends Component {
     }
 
 
-    componentDidMount() {
-
-    }
+    componentDidMount() {}
 
     share(e) {
         e.preventDefault();
@@ -48,7 +46,7 @@ class Spotify extends Component {
 
             })
     }
-    
+
     render() {
         return (
             <div>
