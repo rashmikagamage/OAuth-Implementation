@@ -2,8 +2,6 @@ import React, { Component, PureComponent } from "react";
 import img from "../images/music.png";
 import avatar from "../images/girl.png";
 import axios from "axios";
-import img1 from "../images/linkdelinjob1.png";
-import img2 from "../images/linkdelinjob2.png";
 import img3 from "../images/spotify.jpg";
 
 class Spotify extends Component {
@@ -50,22 +48,18 @@ class Spotify extends Component {
 
             })
     }
-
+    
     render() {
         return (
             <div>
                 <div style={{ backgroundColor: "#000000" }}>
                     <div className="header" style={{ textAlign: "right", margin: "0.065%" }}>
-                        {/* <div className="headerTitles">
-          <span className="headerTitleLg">Job Vacancies</span>
-        </div> */}
                         <div
                             style={{
                                 paddingTop: "0.5%",
                                 paddingBottom: "0.5%",
                                 paddingRight: "1%",
-                            }}
-                        >
+                            }}>
                             <div className="row">
                                 <div className="col-6" style={{ textAlign: "left" }}>
                                     <img
@@ -74,8 +68,9 @@ class Spotify extends Component {
                                             width: "100px",
                                             marginLeft: "5%",
                                             marginTop: "0.8%",
-                                        }}
-                                    ></img>
+                                        }}>
+
+                                    </img>
                                 </div>
                                 <div className="col-6">
                                     <div style={{ marginRight: "4%" }}>
@@ -91,25 +86,20 @@ class Spotify extends Component {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* <h4 class="tweetHeader">Hello Keshana!!</h4> */}
                         </div>
                     </div>
                 </div>
 
                 <div
                     className="container-lg"
-                    style={{ marginTop: "3%", marginLeft: "13%" }}
-                >
+                    style={{ marginTop: "3%", marginLeft: "13%" }}>
                     <div
                         className="card"
                         style={{
                             width: "90%",
                             height: "100%",
                             boxShadow: "10px 10px 30px #888888",
-                            // borderRadius: "25px",
-                        }}
-                    >
+                        }}>
                         <div className="">
                             <div className="container">
                                 <div className="row">
@@ -118,7 +108,6 @@ class Spotify extends Component {
                                         <br />
                                         <br />
                                         <h5>Create your favourite playlist</h5>
-
                                         <br></br> <br></br>
                                     </div>
                                     <div className="col-7" style={{ marginTop: "1%" }}>
