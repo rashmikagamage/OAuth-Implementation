@@ -4,6 +4,8 @@ The OAuth 2.0 authorization framework is a protocol that allows a user to grant 
 
 Outh 2.0 has been used to implement the project. 
 
+&emsp;
+&emsp;
 
 ### 👉 Functionalities
 
@@ -29,6 +31,7 @@ This scenario based on set of branches of company visualization via google maps.
 <h4> 06. Reddit - Authorization Code grant</h4>
 <p> This functionality based on posting a post in Reddit. </p>
 
+&emsp;
 ### 👉 Resource Owners
 
 <p align="left"> 
