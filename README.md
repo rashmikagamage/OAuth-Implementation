@@ -31,6 +31,28 @@ This scenario based on set of branches of company visualization via google maps.
 <h4> 06. Reddit - Authorization Code grant</h4>
 <p> This functionality based on posting a post in Reddit. </p>
 
+
+&emsp;
+### 👉 Deployment
+
+1. Clone the `OAuth-Implementation` repo:  
+`git clone https://github.com/rashmikagamage/OAuth-Implementation.git`
+
+1. locate to backend folder and install dependencies 
+`cd backend`
+`npm install`
+
+1. Run the nodejs server  
+`node server.js`
+
+
+1. locate to frontend folder and install dependencies
+`cd frontend` 
+`npm install`
+
+1. Run the reactjs web sever 
+`npm start`
+
 &emsp;
 ### 👉 Resource Owners
 
@@ -57,5 +79,13 @@ This scenario based on set of branches of company visualization via google maps.
 <a href="https://www.java.com/en/">
     <img alt="" src="https://img.shields.io/badge/Spotify-green?style=for-the-badge&logo=spotify&logoColor=white"/>
   </a>
+ &emsp;
+  
+<a href="https://www.java.com/en/">
+    <img alt="" src="https://img.shields.io/badge/Reddit-red?style=for-the-badge&logo=reddit&logoColor=white"/>
+  </a>
 
 </p>
+
+
+
