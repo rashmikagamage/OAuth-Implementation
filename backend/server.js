@@ -17,9 +17,11 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
+const routes = require('./routes/linkdinRoutes.js');
+const spotify_routes = require('./routes/spotifyRoutes.js');
+const reddit_routes = require('./routes/redditRoutes.js');
 
 
-);
 const GITHUB_CLIENT_ID = "e2a09705be4f6da4f173";
 const GITHUB_CLIENT_SECRET = "2fbf426fb207ea903081a5276eab4796a8ad1c50";
 const CALLBACK_URL = "http://localhost:3000/auth/github/callback"
@@ -96,6 +98,11 @@ passport.authenticate('twitter', { failureRedirect: '/login' }),
 function(req, res) {
   res.redirect('/');
 });
+
+
+app.use('/api', routes);
+app.use('/spotify', spotify_routes);
+app.use('/reddit', reddit_routes);
 
 //end point to authenticate twitter
 app.get('/auth/twitter/callback', 

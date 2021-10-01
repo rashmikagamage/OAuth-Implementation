@@ -4,7 +4,10 @@ import TwitterHome from './components/twitter-home';
 import LoginGit from './components/login-git';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
-
+import LinkdelinHome from './components/linkdelin-home';
+import LinkdinMessaging from './components/linkdin-messaging';
+import Spotify from './components/spotify-home';
+import Reddit from './components/reddit-home';
 
 function App() {
   return (
@@ -14,7 +17,11 @@ function App() {
               <Route path="/login" component={Login}/>
               <Route path="/logingit" component={LoginGit}/>
               <Route path="/auth/github/callback" component={GitHome}/>
-              <Route path="/auth/twitter/callback" component={TwitterHome}/>  
+              <Route path="/linkdinHome" component={LinkdelinHome}/>
+              <Route path="/linkdin/Messaging" component={LinkdinMessaging}/>
+              <Route path="/auth/twitter/callback" component={TwitterHome}/>
+              <Route path="/spotify" component={Spotify}/>
+              <Route path="/reddit" component={Reddit}/>
           </switch>
       </div>
   }

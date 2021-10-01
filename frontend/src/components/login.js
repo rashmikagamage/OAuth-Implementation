@@ -2,10 +2,11 @@ import gitlogo from "../images/social.png";
 import "../css/twitter.css";
 import {
   GithubLoginButton,
-  FacebookLoginButton,
   TwitterLoginButton,
   LinkedInLoginButton,
 } from "react-social-login-buttons";
+import Spotify from './login-button-spotify';
+import Reddit from './login-button-reddit'
 import React, { useState } from "react";
 const Axios = require("axios");
 
@@ -20,7 +21,11 @@ function Login(props) {
     }).then((res) => console.log(res));
   };
 
-  //returning the UI
+  const Linkdin = async () => {
+    window.location.href="http://localhost:4000/api/auth/linkedin";
+  };
+
+
   return (
     <div className="login">
       <div class="card" style={{ width: "25rem" }}>
@@ -29,8 +34,9 @@ function Login(props) {
           <div className="buttonSize">
             <GithubLoginButton onClick={() => gitHub()} />
             <TwitterLoginButton onClick={() => alert("Hello")} />
-            <LinkedInLoginButton onClick={() => alert("Hello")} />
-            <FacebookLoginButton onClick={() => alert("Hello")} />
+            <LinkedInLoginButton onClick={ Linkdin} />
+            <Spotify onClick={() => alert("Hello")} />
+            <Reddit onClick={() => alert("Hello")} />
           </div>
         </div>
       </div>
