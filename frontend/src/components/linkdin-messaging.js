@@ -19,11 +19,18 @@ class LinkdinMessaging extends Component {
       id: "",
       url: "https://www.topjobs.lk/",
       token : "",
+      note : "",
+      additional :""
     };
+
+    this.handleAdditional = this.handleAdditional.bind(this);
+    this.handleNote = this.handleNote.bind(this);
   }
   
 
   componentDidMount() {
+    
+    
     const search = window.location.search;
     const params = new URLSearchParams(search);
     var title = params.get("title");
@@ -33,8 +40,9 @@ class LinkdinMessaging extends Component {
       email: email,
     });
     var token = localStorage.getItem("linkdinAccessToken");
-
     let currentComponent = this;
+
+    // request to load the profile information
     axios({
       method: "get",
       url: "https://api.linkedin.com/v2/me",
@@ -42,13 +50,13 @@ class LinkdinMessaging extends Component {
         Authorization: `Bearer ${token}`,
       },
     }).then(function (response) {
-      // console.log(response.data);
+
 
       // calculate the percenatage of matching of this profile to this vacancie
       // note - linkdin limits about the all info of profile so use only few information to calculate the percentage
       var percentage = 0;
       if (response.data.firstName.preferredLocale.language == "en") {
-        percentage += 20;
+        percentage += 15;
       }
       if (response.data.industry == "ict") {
         percentage += 10;
@@ -56,16 +64,28 @@ class LinkdinMessaging extends Component {
       if (response.data.noOfCertifications > 10) {
         percentage += 10;
       }
+      if(currentComponent.state.title.includes('Intern')){
+        percentage += 10;
+      }
+      if(currentComponent.state.title.includes('Engineer')){
+        percentage += 10;
+      }
+      if(currentComponent.state.title.includes('React')){
+        percentage += 5;
+      }
       if (response.data.firstName.preferredLocale.country == "US") {
         percentage += 5;
       }
+      
+      // set the lastname as response loclaized name
       var lastname = response.data.localizedLastName;
 
+      // when user login with linkedin initially the image url is saved inside localstorage.
       const imageurl = localStorage.getItem("imageurl");
 
       var id = response.data.id;
 
-      // console.log("id" + id);
+     
 
       currentComponent.setState({
         percentage: percentage,
@@ -77,6 +97,7 @@ class LinkdinMessaging extends Component {
     });
   }
 
+  // function to share the post
   share(e) {
     e.preventDefault();
     console.log("share post called" + this.state.token);
@@ -97,14 +118,14 @@ class LinkdinMessaging extends Component {
         "specificContent": {
             "com.linkedin.ugc.ShareContent": {
                 "shareCommentary": {
-                    "text": "This is job opporunity for Software Developers"
+                    "text": "This is job opporunity for " + this.state.title
                 },
                 "shareMediaCategory": "ARTICLE",
                 "media": [
                     {
                         "status": "READY",
                         "description": {
-                            "text": "Job Vacancies for Software Developers"
+                            "text": "Job Vacancies for " + this.state.title
                         },
                         "originalUrl": "https://www.topjobs.lk/",
                         "title": {
@@ -124,6 +145,47 @@ class LinkdinMessaging extends Component {
 
 
   }
+
+  //send a message to the vacancie owner with access token
+  message(e){
+    e.preventDefault();
+
+    axios({
+      method: 'POST',
+      url: 'https://api.linkedin.com/v2/messages',
+      headers: {
+        Authorization: `Bearer ${this.state.token}`,
+        "Content-Type": "application/json",
+      },
+      data : 
+        {
+          "recipients": [
+            "urn:li:person:123ABC",
+          ],
+          "subject": "",
+          "body": "Hello sir/madam, "+ this.state.note + this.state.additional,
+          "messageType": "MEMBER_TO_MEMBER",
+      }
+      
+     })
+      .then(function (response) {
+      
+      })
+      .catch(function (error) {
+        console.log(error);
+        //this.setState({additional: '',note:''});
+      });
+
+      this.setState({additional: '',note:''});
+  }
+
+  handleAdditional(event) {
+    this.setState({additional: event.target.value});
+    }
+
+  handleNote(event) {
+    this.setState({note: event.target.value});
+    }
 
   render() {
     return (
@@ -199,7 +261,7 @@ class LinkdinMessaging extends Component {
                       <div
                         className="progress-bar progress-bar-striped progress-bar-animated "
                         role="progressbar"
-                        style={{ width: "25%" }}
+                        style={{ width: this.state.percentage+'%' }}
                         aria-valuenow="25"
                         aria-valuemin="0"
                         aria-valuemax="100"
@@ -213,12 +275,7 @@ class LinkdinMessaging extends Component {
                     <h2>{this.state.title}</h2>
 
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book. It has survived not only five
-                      centuries,
+                    we are currently seeking a senior mvc .net developer to join our corporate software development teamThe qualified candidate must have working knowledge of software development and software engineering practices in a professional environment.
                     </p>
                     <br></br>
                     <h4>{this.state.email}</h4>
@@ -232,6 +289,8 @@ class LinkdinMessaging extends Component {
                           type="text"
                           className="form-control"
                           id="exampleInputEmail1"
+                          value={this.state.note} 
+                          onChange={(e)=>this.handleNote(e)}
                           aria-describedby="emailHelp"
                           style={{ boxShadow: "8px 8px 30px #C9C0BB" }}
                         />
@@ -241,12 +300,14 @@ class LinkdinMessaging extends Component {
                           for="exampleInputPassword1"
                           className="form-label"
                         >
-                          CV url
+                          Additional Information
                         </label>
                         <input
                           type="text"
                           className="form-control"
                           id="exampleInputPassword1"
+                          value={this.state.additional} 
+                          onChange={(e)=>this.handleAdditional(e)}
                           style={{ boxShadow: "8px 8px 30px #C9C0BB" }}
                         />
                       </div>
@@ -268,6 +329,9 @@ class LinkdinMessaging extends Component {
                         type="submit"
                         className="btn btn-primary"
                         style={{ backgroundColor: "#007AB9" }}
+                        onClick={(e) => {
+                          this.message(e);
+                        }}
                       >
                         Drop Message
                       </button>

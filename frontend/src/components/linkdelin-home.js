@@ -9,54 +9,61 @@ import avatar from "../images/my.jpg";
 import img1 from "../images/linkdelinjob1.png";
 import img2 from "../images/linkdelinjob2.png";
 import img3 from "../images/l2.png";
+import img4 from "../images/link1.png";
+import img5 from "../images/link2.png";
+import img6 from "../images/link5.png";
 const Axios = require("axios");
 
 
 function LinkdelinHome(props) {
   const [papers, setPapers] = useState([
     {
-      title: "Software Engineer C# - Intern",
+      title: "Software Engineer - Intern",
       email: "sep@sliit.lk",
-      description: 7,
-      imageUrl: img1,
+      description: 'we are currently seeking a senior mvc .net developer to join our corporate software development teamThe qualified candidate must have working knowledge of software development and software engineering practices in a professional environment.',
+      imageUrl: img6,
       link: "minivan",
       pdfName: "kkwkw",
       certificationKeywords : ['ict','software','intern','react','nodejs'],
       language : 'en',
-      country : 'US'
+      country : 'US',
+      tech : 'html,js,.net,aws,git'
     },
     {
       title: "Software Engineer React - Intern",
       email: "dilan@ml.lk",
-      description: 7,
+      description: 'we are currently seeking a senior mvc .net developer to join our corporate software development teamThe qualified candidate must have working knowledge of software development and software engineering practices in a professional environment.',
       imageUrl: img2,
       link: "minivan",
       pdfName: "kkwkw",
       certificationKeywords : ['ict','software','intern','net','expressjs'],
       language : 'en',
-      country : 'US'
+      country : 'US',
+      tech : 'Reactjs,Nodejs,es6,redux,git'
     },
     {
-      title: "Job Vacancie 3",
+      title: "Software Engineer - Associate",
       email: "dasun@abc.uk",
-      description: 7,
-      imageUrl: img1,
+      description: 'we are currently seeking a senior mvc .net developer to join our corporate software development teamThe qualified candidate must have working knowledge of software development and software engineering practices in a professional environment.',
+      imageUrl: img4,
       link: "minivan",
       pdfName: "kkwkw",
       certificationKeywords : ['ict','software','job','react','nodejs'],
       language : 'en',
-      country : 'US'
+      country : 'US',
+      tech : 'Reactjs,Nodejs,es6,redux,git'
     },
     {
-      title: "Job Vacancie 4",
+      title: "Business Analyst",
       email: "miyu@sliit.lk",
-      description: 7,
-      imageUrl: img2,
+      description: 'we are currently seeking a business analyst to  to join our corporate the marketing team.The qualified candidate must have working knowledge of marketing strategies and management,team work,communication practices in a professional environment.',
+      imageUrl: img5,
       link: "minivan",
       pdfName: "kkwkw",
       certificationKeywords : ['ict','software','intern','aws','lambda'],
       language : 'en',
-      country : 'US'
+      country : 'US',
+      tech : 'Jira,Scoro,Favro'
     },
   ]);
 
@@ -176,12 +183,13 @@ function LinkdelinHome(props) {
               description={papers.description}
               imageUrl={papers.imageUrl}
               index={papers}
+              tech={papers.tech}
             />
             <br></br>
           </div>
         ))}
       </div>
-      <div style={{ textAlign: "center" }}>Copyright © LinkedIn OAuth 2.0</div>
+      <div style={{ textAlign: "center" }}>© LinkedIn OAuth 2.0</div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import img from "../images/linkdelinjob3.png";
 
-function Box({ title, email, description, imageUrl, link, pdfName, data , index}) {
+function Box({ title, email, description, imageUrl, link, pdfName, data , index, tech}) {
   return (
     <div>
       <div class="card" style={{boxShadow: "0 8px 15px 0 rgba(0, 0, 0, 0.3)", padding: "1%"}}>
@@ -13,11 +13,11 @@ function Box({ title, email, description, imageUrl, link, pdfName, data , index}
             <div class="col-8">
                 <div class="row">
             <div class="col-12"><h3>{title}</h3></div>
-            <div class="col-12"> <h6>Description is the pattern of narrative development that aims to make vivid a place, object, character, or group. Description is one of four rhetorical modes, along with exposition, argumentation, and narration. In practice it would be difficult to write literature that</h6></div>
-            <div class="col-12"> <h8>hasithakeshsna9900@gmail.com</h8></div>
-            <div class="col-12"> <h8>hasithakeshsna9900@gmail.com</h8></div>
+            <div class="col-12"> <h6>{description}</h6></div>
+            <div class="col-12"> <h8>Technology stack - {tech}</h8></div>
+            <div class="col-12"> <h8>contact us via {email}</h8></div>
             <br></br> <br></br>
-            <div class="col-12"> <button type="button" onClick={()=>data(index)} class="btn btn-primary  btn-sm">Check</button></div>
+            <div class="col-12"> <button type="button" onClick={()=>data(index)} class="btn btn-primary  btn-sm">Check Eligibility</button></div>
             <br></br> <br></br>
           </div>
             </div>

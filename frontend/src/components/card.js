@@ -62,3 +62,5 @@ function Card({ title, email, description, imageUrl, link, pdfName }) {
 }
 
 export default Card;
+
+
