@@ -4,7 +4,7 @@ const passport = require("passport");
 const axios = require('axios');
 
 
-
+//route of the spotify
 passport.use(
     new SpotifyStrategy(
         {
