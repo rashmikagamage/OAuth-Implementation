@@ -52,7 +52,7 @@ class LinkdinMessaging extends Component {
     }).then(function (response) {
 
 
-      // calculate the percenatage of matching of this profile to this vacancie
+      // calculate the percenatage of matching of this profile to this vacancies
       // note - linkdin limits about the all info of profile so use only few information to calculate the percentage
       var percentage = 0;
       if (response.data.firstName.preferredLocale.language == "en") {
