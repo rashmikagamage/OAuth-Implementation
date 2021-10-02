@@ -3,6 +3,7 @@ const RedditStrategy = require('passport-reddit').Strategy;
 const passport = require("passport");
 const axios = require('axios');
 
+//route of the reddit
 passport.use(new RedditStrategy({
         clientID: '4EXvjTaKwqbn-tr587OZLw',
         clientSecret: '_VOSE8BiDwlhEa8PgLAq3Qxvt0Z2DQ',
