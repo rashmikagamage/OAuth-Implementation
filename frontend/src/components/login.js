@@ -26,6 +26,11 @@ function Login(props) {
   };
 
 
+  const spLogin = async () => {
+      window.location.href="http://localhost:4000/spotify/auth/spotify";
+  }
+
+
   return (
     <div className="login">
       <div class="card" style={{ width: "25rem" }}>
@@ -35,7 +40,7 @@ function Login(props) {
             <GithubLoginButton onClick={() => gitHub()} />
             <TwitterLoginButton onClick={() => alert("Hello")} />
             <LinkedInLoginButton onClick={ Linkdin} />
-            <Spotify onClick={() => alert("Hello")} />
+            <Spotify onClick={spLogin} />
             <Reddit onClick={() => alert("Hello")} />
           </div>
         </div>

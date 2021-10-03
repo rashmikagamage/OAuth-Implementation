@@ -9,35 +9,49 @@ class Spotify extends Component {
         super(props);
 
         this.state = {
-            title: "",
-            lastname: "Ash",
-            imageurl: "",
-            id: "",
+
             token : "",
-            name : "",
-            description : ""
+            name : "New Playlist 5",
+            description : "Description 5"
         };
     }
 
 
-    componentDidMount() {}
+    componentDidMount() {
+        let currentComponent = this;
+        axios({
+            method: 'get',
+            url: 'http://localhost:4000/spotify/gettoken',
+
+        })  .then(function (response) {
+           // response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+            console.log(response.data)
+            localStorage.setItem("spotifyAccessToken", response.data);
+
+            currentComponent.setState({
+                token: response.data
+            });
+        });
+    }
 
     share(e) {
         e.preventDefault();
         console.log("share post called" + this.state.token);
 
+        var token = 'BQDGvjXyF8pFxsY4vLd4RX1DDB4VuOPG-R79pmvu15xGzU2nW2phznkI5pHw0G7bb-UQN9_p39EmwFDswz4WMS-1GvolnFX79EAPM2dCdr24FLszMo9zhWT-NQ-_CtZsXkPtZ0awgdHURWfU9JYnT1hrxsO1tFcTB0MZz4vadgmYbInf-g';
+
         axios({
             method: "post",
             url: "https://api.spotify.com/v1/users/p05m444pdwsoyh3sxbfz1bwo8/playlists",
             headers: {
-                Authorization: `Bearer ${this.state.token}`,
-                "Content-Type": "application/x-www-form-urlencoded",
+                Authorization: `Bearer ${token}`,
+                "Content-Type" : "application/json"
             },
             data: {
 
-            "name": `${this.state.name}`,
+                "name": `${this.state.name}`,
                 "description" : `${this.state.description}`,
-            "public": false
+                "public": false
             },
         })
             .then(function (response) {

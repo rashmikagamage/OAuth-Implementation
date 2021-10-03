@@ -1,35 +1,64 @@
 const router = require("express").Router();
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const passport = require("passport");
-const axios = require('axios');
+
 
 
 //route of the spotify
+
+
+if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require("node-localstorage").LocalStorage;
+    localStorage = new LocalStorage("./scratch");
+}
+
 passport.use(
     new SpotifyStrategy(
         {
-            clientID: '649ac4149cdb4b0ea550b1ad265b5d0e',
-            clientSecret: 'd4603fdcbedb48a19de24c386cae9b0a',
-            callbackURL: 'https://localhost/callback'
+            clientID: 'b687bf4d6f9a4ab08264710cedf73605',
+            clientSecret: 'd15f0ed534e541bc9f80bfc7ce321768',
+            callbackURL: 'http://localhost:4000/spotify/callback'
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
-            User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
-                return done(err, user);
-            });
+
+           // User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
+           //     return done(err, user);
+           //  });
+            console.log(accessToken);
+            localStorage.setItem("spotifytoken", accessToken);
+            return done(null,accessToken);
+
+
         }
     )
-)
+);
 
-router.get('/auth/spotify', passport.authenticate('spotify'));
+//router.get('/auth/spotify', passport.authenticate('spotify'));
+router.get(
+    '/auth/spotify',
+    passport.authenticate('spotify', {
+        scope: ['user-read-email', 'user-read-private', 'playlist-modify-public' , 'playlist-read-private', 'playlist-modify-private'],
+        showDialog: true
+    })
+);
 
 router.get(
-    '/auth/spotify/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
+    '/callback',
+    passport.authenticate('spotify', { failureRedirect: 'http://localhost:3000/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/');
+        // http://localhost:4000/spotify/callback
+        res.redirect('http://localhost:3000/spotify');
     }
 );
+
+router.get("/gettoken", function (req, res) {
+    //console.log("get token called" + localStorage.getItem("token"));
+    const token = localStorage.getItem("spotifytoken");
+    res.send(token);
+});
+
+
 
 
 
