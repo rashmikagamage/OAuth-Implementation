@@ -11,13 +11,21 @@ class Spotify extends Component {
         this.state = {
 
             token : "",
-            name : "New Playlist 5",
-            description : "Description 5"
+            name : " ",
+            description : " "
         };
     }
 
 
     componentDidMount() {
+        const search = window.location.search;
+        const params = new URLSearchParams(search);
+        var name = params.get("name");
+        var description = params.get("description");
+        this.setState({
+            name: name,
+            description: description,
+        });
         let currentComponent = this;
         axios({
             method: 'get',
@@ -38,13 +46,13 @@ class Spotify extends Component {
         e.preventDefault();
         console.log("share post called" + this.state.token);
 
-        var token = 'BQDGvjXyF8pFxsY4vLd4RX1DDB4VuOPG-R79pmvu15xGzU2nW2phznkI5pHw0G7bb-UQN9_p39EmwFDswz4WMS-1GvolnFX79EAPM2dCdr24FLszMo9zhWT-NQ-_CtZsXkPtZ0awgdHURWfU9JYnT1hrxsO1tFcTB0MZz4vadgmYbInf-g';
+        //var token = 'BQDGvjXyF8pFxsY4vLd4RX1DDB4VuOPG-R79pmvu15xGzU2nW2phznkI5pHw0G7bb-UQN9_p39EmwFDswz4WMS-1GvolnFX79EAPM2dCdr24FLszMo9zhWT-NQ-_CtZsXkPtZ0awgdHURWfU9JYnT1hrxsO1tFcTB0MZz4vadgmYbInf-g';
 
         axios({
             method: "post",
             url: "https://api.spotify.com/v1/users/p05m444pdwsoyh3sxbfz1bwo8/playlists",
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${this.state.token}`,
                 "Content-Type" : "application/json"
             },
             data: {
