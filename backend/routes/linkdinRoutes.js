@@ -58,9 +58,7 @@ router.get("/gettoken", function (req, res) {
 
 
 router.get("/getprofile", function (req, res) {
-  //console.log("get token called" + localStorage.getItem("myFirstKey"));
-
-  // const token = 'AQXr4PCQoszLznYCzJ7WuPu-wmkmt1yhGEK_gs8vkbr6WiyPcuuNiUsk7VVyMSJeJwF7Xxy7BvjXp3J1A505i_fF8_q16LKwOFh8Dnbz8a2mHEL0oIqweG1-GQzJ4YzdtEAiolDt-Pa1rMRxKoNIY882N6gqMfT-FhC-QNijDObxp-ZisIGfxKoe_ZuuJqXXV_dlsIF0eSRsIIASmxfUKcpU7VaX80jORM4Z3O6iFYE48G3YKzvgpjx9a4P6dVGinXwPrT1L6D7Ak66kLtGRDRcD1JpCbc_2Ol2qRQesJn4wwcPbq317aKA6cGjeuP-d07pyL5o7KvoMoKaNfxJT_ovXkhOQIQ'
+  
   const token = localStorage.getItem("myFirstKey");
   axios({
       method: 'get',

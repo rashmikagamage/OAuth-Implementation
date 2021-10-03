@@ -15,6 +15,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({ secret: 'SECRET' }));
 const routes = require('./routes/linkdinRoutes.js');
+const googleroutes = require('./routes/googleMapsRoutes.js');
 
 app.use(
   cors({
@@ -100,6 +101,7 @@ function(req, res) {
 
 
 app.use('/api', routes);
+app.use('/google', googleroutes);
 
 //Listening to port
 app.listen(process.env.port || 4000, function () {
